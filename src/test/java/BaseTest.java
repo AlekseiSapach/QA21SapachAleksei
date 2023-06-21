@@ -1,43 +1,59 @@
 import org.testng.annotations.*;
 
 public class BaseTest {
+
+    protected Calculator calculator;
+
     @BeforeClass
-    public void beforeClass(){
+    public void beforeClass() {
         System.out.println("BeforeClass....");
+        calculator = new Calculator();
+        calculator.setLevel(this.getClass().toString());
     }
+
     @BeforeTest
-    public void beforeTest(){
+    public void beforeTest() {
         System.out.println("BeforeTest....");
+
     }
+
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         System.out.println("BeforeMethod....");
     }
+
     @BeforeSuite
-    public void beforeSuite(){
+    public void beforeSuite() {
         System.out.println("BeforeSuite....");
     }
+
     @BeforeGroups
-    public void beforeGroups(){
+    public void beforeGroups() {
         System.out.println("BeforeGroups....");
-    }@AfterClass
-    public void afterClass(){
+    }
+
+    @AfterClass
+    public void afterClass() {
         System.out.println("AfterClass....");
     }
+
     @AfterTest
-    public void afterTest(){
+    public void afterTest() {
         System.out.println("AfterTest....");
     }
+
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         System.out.println("AfterMethod....");
     }
+
     @AfterSuite
-    public void afterSuite(){
+    public void afterSuite() {
         System.out.println("AfterSuite....");
     }
+
     @AfterGroups
-    public void afterGroups(){
+    public void afterGroups() {
         System.out.println("AfterGroups....");
     }
 
