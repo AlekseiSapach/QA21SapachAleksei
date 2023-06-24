@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite">
+    <test name="HomeWork">
+        <groups>
+            <define name="Group 1">
+                <include name="integer Value"/>
+            </define>
+            <define name="Group 2">
+                <include name="decimal Value"/>
+            </define>
+            <define name="Group 3">
+                <include name="division byZero"/>
+            </define>
+            <run>
+                <include name="Group 1"/>
+                <include name="Group 2"/>
+                <include name="Group 3"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="HomeWorkTest"/>
+        </classes>
+    </test>
+</suite>
