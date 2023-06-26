@@ -38,7 +38,7 @@ public class HomeWorkTest extends BaseTest
     {
         Assert.assertEquals(calculator.divInt(a,b),expectedValue,"Значения не одинаковые");
     }
-    @Test (priority = 1,description = "тест с приоритетом", timeOut = 1000,
+    @Test (priority = 1,description = "Тест с приоритетом", timeOut = 1000,
             dataProvider = "Data for Div Int Zero",
             dataProviderClass = StaticProvider.class, expectedExceptions = ArithmeticException.class)
     public void testDivIntZeroCopy (int a, int b, Object expectedValue)
@@ -51,7 +51,7 @@ public class HomeWorkTest extends BaseTest
     {
         Assert.assertEquals(calculator.divInt(a,b),expectedValue,"Значения не одинаковые");
     }
-    @Test (dependsOnMethods ="testDivDoubleZero",
+    @Test (priority = 2,dependsOnMethods ="testDivDoubleZero",
             dataProvider = "Data for Div Double Zero", dataProviderClass = StaticProvider.class)
     public void testDivDoubleZeroCopy(double a, double b, double expectedValue)
     {
