@@ -8,7 +8,7 @@ public class Calculator {
     {
         return a/b;
     }
-    public double divDouble(double a, double b)
+    public double divInt(double a, double b)
     {
         return a/b;
     }
