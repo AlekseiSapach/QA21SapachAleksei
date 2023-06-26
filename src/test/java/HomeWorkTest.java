@@ -23,13 +23,13 @@ public class HomeWorkTest extends BaseTest
             dataProvider = "Data for Div Double", dataProviderClass = StaticProvider.class)
     public void testDivDouble(double a, double b, double expectedValue)
     {
-        Assert.assertEquals(calculator.divDouble(a,b),expectedValue,"Значения не одинаковые");
+        Assert.assertEquals(calculator.divInt(a,b),expectedValue,"Значения не одинаковые");
     }
     @Test (testName = "Деление с остатком на ноль",groups = {"decimal Value","division byZero"},
             dataProvider = "Data for Div Double Zero", dataProviderClass = StaticProvider.class)
     public void testDivDoubleZero(double a, double b, double expectedValue)
     {
-        Assert.assertEquals(calculator.divDouble(a,b),expectedValue,"Значения не одинаковые");
+        Assert.assertEquals(calculator.divInt(a,b),expectedValue,"Значения не одинаковые");
     }
 
 }
