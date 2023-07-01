@@ -42,7 +42,7 @@ public class BrowserFactory {
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--silent");
         chromeOptions.addArguments("--start-maximized");
-        //chromeOptions.addArguments("--incognito");
+        chromeOptions.addArguments("--incognito");
         return chromeOptions;
     }
     public FirefoxOptions getFirefoxOptions(){
