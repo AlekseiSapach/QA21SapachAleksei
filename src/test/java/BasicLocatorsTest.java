@@ -21,22 +21,22 @@ public class BasicLocatorsTest {
 
     @Test
     public void basicLocatorsTest_1(){
-        driver.get(ReadProperties.getUrl());
+        driver.get("https://computer-database.gatling.io/computers");
         // Find webElement by ID
-        driver.findElement(By.id("name")).sendKeys(ReadProperties.username());
+        driver.findElement(By.id("searchsubmit")).isDisplayed();
         // Find webElement by Name
-        driver.findElement(By.name("password")).sendKeys(ReadProperties.password());
+        driver.findElement(By.name("f")).isDisplayed();
         // Find webElement by Tag
-        driver.findElement(By.tagName("button")).click();
+        driver.findElement(By.tagName("table")).isDisplayed();
     }
     @Test
     public void basicLocatorsTest_2(){
-        driver.get(ReadProperties.getUrl());
+        driver.get("https://computer-database.gatling.io/computers");
         // Find webElement by LinkText
-        driver.findElement(By.linkText("Forgot your password?")).click();
+        driver.findElement(By.linkText("AN/FSQ-32")).isDisplayed();
         // Find webElement by ClassName
-        driver.findElement(By.className("forgot_passwordpage-request-cansel")).click();
+        driver.findElement(By.className("btn success")).isDisplayed();
         // Find webElement by PartialLinkText
-        driver.findElement(By.partialLinkText("your password?")).click();
+        driver.findElement(By.partialLinkText("Blue Mountain")).isDisplayed();
     }
 }
