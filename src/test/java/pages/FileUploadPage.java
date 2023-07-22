@@ -29,12 +29,12 @@ public class FileUploadPage extends BasePage {
 
     // Блок атомарных методов
     public WebElement getButtonFileUpload() {
-        return driver.findElement(buttonFileUploadLocator);
+        return waitService.waitForExists(buttonFileUploadLocator);
     }
     public WebElement getButtonFileSubmit() {
-        return driver.findElement(buttonFileSubmitLocator);
+        return waitService.waitForExists(buttonFileSubmitLocator);
     }
     public WebElement getLabelUploaded() {
-        return driver.findElement(labelUploadedLocator);
+        return waitService.waitForExists(labelUploadedLocator);
     }
 }

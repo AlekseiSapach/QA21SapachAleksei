@@ -27,6 +27,6 @@ public class ContextMenuPage extends BasePage {
 
     // Блок атомарных методов
     public WebElement getBox() {
-        return driver.findElement(boxLocator);
+        return waitService.waitForExists(boxLocator);
     }
 }

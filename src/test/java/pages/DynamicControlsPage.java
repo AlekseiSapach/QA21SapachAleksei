@@ -33,21 +33,22 @@ public class DynamicControlsPage extends BasePage {
 
     // Блок атомарных методов
     public WebElement getButtonRemove() {
-        return driver.findElement(buttonRemoveLocator);
+        return waitService.waitForExists(buttonRemoveLocator);
     }
     public WebElement getButtonEnable() {
-        return driver.findElement(buttonEnableLocator);
+        return waitService.waitForExists(buttonEnableLocator);
     }
     public WebElement getLoading() {
-        return driver.findElement(loadingLocator);
+        return waitService.waitForExists(loadingLocator);
     }
     public WebElement getCheckbox() {
-        return driver.findElement(checkboxLocator);
+        return waitService.waitForExists(checkboxLocator);
     }
     public WebElement getMessage() {
-        return driver.findElement(messageLocator);
+        return waitService.waitForExists(messageLocator);
     }
+
     public WebElement getInputText() {
-        return driver.findElement(inputTextLocator);
+        return waitService.waitForExists(inputTextLocator);
     }
 }
