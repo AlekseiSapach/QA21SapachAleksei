@@ -17,9 +17,4 @@ public class LoginStep extends BaseStep {
         return dashboardPage;
     }
 
-    public LoginPage negativeLogin(String username, String psw) {
-        loginPage.login(username, psw);
-
-        return loginPage;
-    }
 }
