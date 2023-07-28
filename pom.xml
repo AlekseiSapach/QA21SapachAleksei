@@ -17,7 +17,7 @@
         <selenium-java.version>4.10.0</selenium-java.version>
         <webdrivermanager.version>5.4.1</webdrivermanager.version>
         <allure-testng.version>2.23.0</allure-testng.version>
-        <testng.xml.path>src/test/resources/smoke.xml</testng.xml.path>
+        <testng.xml.path>src/test/resources/testng.xml</testng.xml.path>
     </properties>
 
 
@@ -51,9 +51,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
-                    <argLine>
+                    <suiteXmlFiles>${testng.xml.path}</suiteXmlFiles>
+                    <!--argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
+                    </argLine-->
                 </configuration>
                 <dependencies>
                     <dependency>

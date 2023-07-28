@@ -5,8 +5,9 @@
         <classes>
             <class name="tests.End2EndTest">
                 <methods>
-                    <include name="infoAlertTest"/>
-                    <include name="confirmAlertTest"/>
+                    <include name="end2endTest"/>
+                    <include name="end2endTest_1"/>
+                    <include name="end2endTest_2"/>
                 </methods>
             </class>
         </classes>
