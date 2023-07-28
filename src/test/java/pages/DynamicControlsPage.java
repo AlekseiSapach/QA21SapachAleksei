@@ -16,7 +16,6 @@ public class DynamicControlsPage extends BasePage {
     private final By messageLocator = By.id("message");
     private final By inputTextLocator = By.tagName("input");
 
-
     // Блок инициализации
     public DynamicControlsPage(WebDriver driver) {
         super(driver);
@@ -26,11 +25,9 @@ public class DynamicControlsPage extends BasePage {
     protected By getPageIdentifier() {
         return buttonRemoveLocator;
     }
-
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
-
     // Блок атомарных методов
     public WebElement getButtonRemove() {
         return waitService.waitForExists(buttonRemoveLocator);
@@ -47,7 +44,6 @@ public class DynamicControlsPage extends BasePage {
     public WebElement getMessage() {
         return waitService.waitForExists(messageLocator);
     }
-
     public WebElement getInputText() {
         return waitService.waitForExists(inputTextLocator);
     }

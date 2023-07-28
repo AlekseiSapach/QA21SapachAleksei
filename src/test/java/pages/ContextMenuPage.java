@@ -15,16 +15,13 @@ public class ContextMenuPage extends BasePage {
     public ContextMenuPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     protected By getPageIdentifier() {
         return boxLocator;
     }
-
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
-
     // Блок атомарных методов
     public WebElement getBox() {
         return waitService.waitForExists(boxLocator);

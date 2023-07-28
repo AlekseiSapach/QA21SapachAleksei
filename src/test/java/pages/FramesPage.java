@@ -11,22 +11,19 @@ public class FramesPage extends BasePage {
     // Блок описания локаторов для элементов
     private final By labelLocator = By.id("tinymce");
     private final By frameLocator = By.id("mce_0_ifr");
-    private final By iframesLinkLocator = By.linkText("/iframe");
+    private final By iframesLinkLocator = By.xpath("//a[text() = 'iFrame']");
 
     // Блок инициализации
     public FramesPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     protected By getPageIdentifier() {
         return iframesLinkLocator;
     }
-
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
-
     // Блок атомарных методов
     public WebElement getIframesLink() {
         return waitService.waitForExists(iframesLinkLocator);

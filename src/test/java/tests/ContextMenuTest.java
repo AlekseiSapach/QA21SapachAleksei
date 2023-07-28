@@ -14,19 +14,12 @@ public class ContextMenuTest extends BaseTest {
         Actions actions = new Actions(driver);
         ContextMenuPage contextMenuPage = new ContextMenuPage(driver);
         contextMenuPage.openPageByUrl();
-
         actions
                 .contextClick(contextMenuPage.getBox())
                 .build()
                 .perform();
         Alert alert = driver.switchTo().alert();
-
-
         Assert.assertEquals(alert.getText(), "You selected a context menu");
-
         alert.dismiss();
-
-
     }
-
 }
