@@ -4,6 +4,7 @@ import factory.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.CompletePage;
 import pages.OverviewPage;
 import pages.YouCardPage;
@@ -12,6 +13,8 @@ import steps.LoginStep;
 import steps.ProductStep;
 import utils.configuration.ReadProperties;
 
+@Listeners(InvokedListener.class)
+//@Listeners(Listener.class)
 public class BaseTest {
     protected WebDriver driver;
 
