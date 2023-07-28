@@ -2,6 +2,7 @@ package baseEntities;
 
 import factory.BrowserFactory;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -26,9 +27,10 @@ public class BaseTest {
     protected CompletePage completePage;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp(ITestContext iTestContext) {
         BrowserFactory browserFactory = new BrowserFactory();
         driver = browserFactory.getDriver();
+        this.setDriverToContext(iTestContext, driver);
 
         loginStep = new LoginStep(driver);
         productStep = new ProductStep(driver);
@@ -38,6 +40,9 @@ public class BaseTest {
         completePage = new CompletePage(driver);
 
         driver.get(ReadProperties.getUrl());
+    }
+    public static void setDriverToContext(ITestContext iTestContext, WebDriver driver){
+        iTestContext.setAttribute("WebDriver", driver);
     }
 
     @AfterMethod
