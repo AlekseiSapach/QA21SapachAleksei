@@ -5,25 +5,26 @@ import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.IInvokedMethod;
+import org.testng.IInvokedMethodListener;
 import org.testng.ITestContext;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class Listener extends BaseTest implements ITestListener {
+public class InvokedListener implements IInvokedMethodListener {
 
-    @Override
-    public void onTestFailure(ITestResult result) {
-        try {
+    public void afterInvocation(IInvokedMethod method, ITestResult result) {
+        //System.out.println("This method is invoked after every config method - " + method.getTestMethod().getMethodName());
+
+        if (result.getStatus() == ITestResult.FAILURE) {
             ITestContext iTestContext = result.getTestContext();
             WebDriver driver = (WebDriver) iTestContext.getAttribute("WebDriver");
+
             try {
                 byte[] srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 saveScreenshot(srcFile);
             } catch (NoSuchSessionException ex) {
 
             }
-        } catch (Exception ex) {
-
         }
     }
 
@@ -36,4 +37,5 @@ public class Listener extends BaseTest implements ITestListener {
     private static String saveTextLog(String message) {
         return message;
     }
+
 }
