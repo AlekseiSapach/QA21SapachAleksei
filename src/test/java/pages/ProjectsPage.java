@@ -16,7 +16,6 @@ public class ProjectsPage extends BasePage {
     // Блок инициализации
     public ProjectsPage(WebDriver driver) {
         super(driver);
-
     }
 
     @Override

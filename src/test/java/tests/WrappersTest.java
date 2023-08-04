@@ -1,6 +1,7 @@
 package tests;
 
 import baseEntities.BaseTest;
+import elements.CheckBox;
 import elements.TableCell;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,28 +12,15 @@ import utils.configuration.ReadProperties;
 public class WrappersTest extends BaseTest {
 
     @Test
-    public void testName() {
+    public void testCheckBox() {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
 
-        WebElement checkBox1 = driver.findElement(By.cssSelector("#checkboxes input"));
+        CheckBox checkBox1 = new CheckBox(driver,By.xpath("//*[@id=\"checkboxes\"]/input[1]"));
+        CheckBox checkBox2 = new CheckBox(driver,By.xpath("//*[@id=\"checkboxes\"]/input[2]"));
 
+        checkBox1.setCheckBox();
+        checkBox2.removeCheckBox();
     }
-
-    private void setCheckBox(WebElement webElement) {
-        if (!webElement.isSelected()) {
-            webElement.click();
-        }
-    }
-
-    private void removeCheckBox(WebElement webElement) {
-        if (!webElement.isSelected()) {
-            webElement.click();
-        }
-
-        WebElement el1 = driver.findElement(By.cssSelector("class1")).findElement(By.cssSelector("class2"));
-        WebElement el2 = webElement.findElement(By.cssSelector("class1")).findElement(By.cssSelector("class2"));
-    }
-
 
     @Test
     public void tableTest() {
