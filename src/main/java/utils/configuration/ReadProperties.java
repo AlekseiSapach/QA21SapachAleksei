@@ -32,7 +32,8 @@ public class ReadProperties {
     }
     public static String firstname() {
         return properties.getProperty("firstname");
-    }    public static String lastname() {
+    }
+    public static String lastname() {
         return properties.getProperty("lastname");
     }
     public static String zipCode() {

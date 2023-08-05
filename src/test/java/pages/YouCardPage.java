@@ -4,12 +4,15 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class YouCardPage extends BasePage {
     private final static String pagePath = "/cart.html";
 
     // Блок описания локаторов для элементов
-    private final By checkoutButtonLocator = By.id("checkout");
+    @FindBy(id = "checkout")
+    public WebElement checkoutButton;
+
 
     // Блок инициализации
     public YouCardPage(WebDriver driver) {
@@ -18,16 +21,10 @@ public class YouCardPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return checkoutButtonLocator;
+        return By.id("checkout");
     }
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
-
-    // Блок атомарных методов
-    public WebElement getCheckoutButton() {
-        return driver.findElement(checkoutButtonLocator);
-    }
-
 }

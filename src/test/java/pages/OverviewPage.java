@@ -4,13 +4,14 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class OverviewPage extends BasePage {
     private final static String pagePath = "/checkout-step-two.html";
 
     // Блок описания локаторов для элементов
-
-    private final By finishButtonLocator = By.id("finish");
+    @FindBy(id = "finish")
+    public WebElement finishButton;
 
     // Блок инициализации
     public OverviewPage(WebDriver driver) {
@@ -19,15 +20,6 @@ public class OverviewPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return finishButtonLocator;
+        return By.id("finish");
     }
-
-    // Блок атомарных методов
-
-    public WebElement getFinishButton() {
-        return driver.findElement(finishButtonLocator);
-    }
-
-    // Блок комплексных методов
-
 }

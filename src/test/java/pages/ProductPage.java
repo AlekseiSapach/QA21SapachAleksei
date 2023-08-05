@@ -4,13 +4,17 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class ProductPage extends BasePage {
     private final static String pagePath = "/inventory.html";
 
     // Блок описания локаторов для элементов
-    private final By addToCartButtonLocator = By.id("add-to-cart-sauce-labs-backpack");
-    private final By shoppingButtonLocator = By.id("shopping_cart_container");
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    public WebElement addToCartButton;
+
+    @FindBy (id = "shopping_cart_container")
+    public WebElement shoppingButton;
 
     // Блок инициализации
     public ProductPage(WebDriver driver) {
@@ -19,23 +23,16 @@ public class ProductPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return addToCartButtonLocator;
+        return By.id("add-to-cart-sauce-labs-backpack");
     }
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
 
-    // Блок атомарных методов
-    public WebElement getAddToCartButton() {
-        return driver.findElement(addToCartButtonLocator);
-    }
-    public WebElement getShoppingButton() {
-        return driver.findElement(shoppingButtonLocator);
-    }
     // Блок комплексных методов
     public void getProduct() {
-        getAddToCartButton().click();
-        getShoppingButton().click();
+        addToCartButton.click();
+        shoppingButton.click();
     }
 }

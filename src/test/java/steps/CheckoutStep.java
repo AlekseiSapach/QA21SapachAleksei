@@ -1,6 +1,7 @@
 package steps;
 
 import baseEntities.BaseStep;
+import models.UserCard;
 import org.openqa.selenium.WebDriver;
 import pages.OverviewPage;
 import pages.YouCardPage;
@@ -11,8 +12,8 @@ public class CheckoutStep extends BaseStep {
         super(driver);
     }
 
-    public OverviewPage getInformation(String firstname, String lastname, String zipcode) {
-        checkoutPage.getCheck(firstname,lastname,zipcode);
+    public OverviewPage getInformation(UserCard  userCard) {
+        checkoutPage.getCheck(userCard);
 
         return overviewPage;
     }

@@ -4,9 +4,7 @@ import factory.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.CompletePage;
-import pages.OverviewPage;
-import pages.YouCardPage;
+import pages.*;
 import steps.CheckoutStep;
 import steps.LoginStep;
 import steps.ProductStep;
@@ -18,9 +16,12 @@ public class BaseTest {
     protected LoginStep loginStep;
     protected ProductStep productStep;
     protected CheckoutStep checkoutStep;
+    protected LoginPage loginPage;
+    protected ProductPage productPage;
     protected YouCardPage youCardPage;
     protected OverviewPage overviewPage;
     protected CompletePage completePage;
+    protected CheckoutPage checkoutPage;
 
     @BeforeMethod
     public void setUp() {
@@ -30,9 +31,12 @@ public class BaseTest {
         loginStep = new LoginStep(driver);
         productStep = new ProductStep(driver);
         checkoutStep = new CheckoutStep(driver);
+        loginPage  = new LoginPage(driver);
+        productPage = new ProductPage(driver);
         youCardPage = new YouCardPage(driver);
         overviewPage = new OverviewPage(driver);
         completePage = new CompletePage(driver);
+        checkoutPage = new CheckoutPage(driver);
 
         driver.get(ReadProperties.getUrl());
     }

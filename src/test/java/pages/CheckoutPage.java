@@ -1,6 +1,8 @@
 package pages;
 
 import baseEntities.BasePage;
+import models.UserCard;
+import models.UserCardBuild;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,14 +29,12 @@ public class CheckoutPage extends BasePage {
     protected By getPageIdentifier() {
         return By.id("continue");
     }
-    // Блок атомарных методов
 
     // Блок комплексных методов
-    public void getCheck(String firstname, String lastname, String zipcode) {
-        firstNameInput.sendKeys(firstname);
-        lastNameInput.sendKeys(lastname);
-        zipCodeInput.sendKeys(zipcode);
+    public void getCheck(UserCard userCard) {
+        firstNameInput.sendKeys(userCard.getFirstName());
+        lastNameInput.sendKeys(userCard.getLastName());
+        zipCodeInput.sendKeys(userCard.getZipCode());
         continueButton.click();
     }
-
 }
