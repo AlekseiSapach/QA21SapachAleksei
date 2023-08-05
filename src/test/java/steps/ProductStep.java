@@ -12,7 +12,6 @@ public class ProductStep extends BaseStep {
 
     public YouCardPage productSelection() {
         productPage.getProduct();
-
         return youCardPage;
     }
 }

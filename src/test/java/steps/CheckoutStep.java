@@ -4,7 +4,6 @@ import baseEntities.BaseStep;
 import models.UserCard;
 import org.openqa.selenium.WebDriver;
 import pages.OverviewPage;
-import pages.YouCardPage;
 
 public class CheckoutStep extends BaseStep {
 

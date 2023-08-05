@@ -5,7 +5,6 @@ import pages.*;
 
 public class BaseStep {
     protected WebDriver driver;
-
     protected LoginPage loginPage;
     protected ProductPage productPage;
     protected YouCardPage youCardPage;

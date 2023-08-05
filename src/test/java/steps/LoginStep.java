@@ -9,7 +9,6 @@ public class LoginStep extends BaseStep {
     public LoginStep(WebDriver driver) {
         super(driver);
     }
-
     public ProductPage successLogin(String username, String psw) {
         loginPage.login(username, psw);
 

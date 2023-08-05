@@ -13,12 +13,10 @@ public class YouCardPage extends BasePage {
     @FindBy(id = "checkout")
     public WebElement checkoutButton;
 
-
     // Блок инициализации
     public YouCardPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     protected By getPageIdentifier() {
         return By.id("checkout");

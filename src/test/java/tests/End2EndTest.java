@@ -2,13 +2,8 @@ package tests;
 
 import baseEntities.BaseTest;
 import helper.DataHelper;
-import models.UserCard;
-import models.UserCardBuild;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CompletePage;
-import pages.OverviewPage;
-import pages.YouCardPage;
 import utils.configuration.ReadProperties;
 
 public class End2EndTest extends BaseTest {
@@ -22,6 +17,5 @@ public class End2EndTest extends BaseTest {
         overviewPage.finishButton.click();
         completePage.isPageOpened();
         Assert.assertEquals(completePage.label.getText(),"Thank you for your order!");
-
     }
 }

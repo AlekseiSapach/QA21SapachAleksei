@@ -22,5 +22,4 @@ public class CompletePage extends BasePage {
     protected By getPageIdentifier() {
         return By.className("complete-header");
     }
-
 }
