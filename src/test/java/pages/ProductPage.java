@@ -31,8 +31,12 @@ public class ProductPage extends BasePage {
     }
 
     // Блок комплексных методов
-    public void getProduct() {
+    public ProductPage getAddToCart (){
         addToCartButton.click();
+        return this;
+    }
+    public YouCardPage getShopping(){
         shoppingButton.click();
+        return new YouCardPage(driver);
     }
 }

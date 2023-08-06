@@ -10,8 +10,11 @@ public class End2EndTest extends BaseTest {
     @Test
     public void end2endTest() {
 
-        loginStep.successLogin(ReadProperties.username(),ReadProperties.password()).isPageOpened();
-        productStep.productSelection().isPageOpened();
+        loginPage.getEmail(ReadProperties.username())
+                .getPassword(ReadProperties.password())
+                .getClick()
+                .getAddToCart()
+                .getShopping();
         youCardPage.checkoutButton.click();
         checkoutStep.getInformation(DataHelper.getUserCard()).isPageOpened();
         overviewPage.finishButton.click();
