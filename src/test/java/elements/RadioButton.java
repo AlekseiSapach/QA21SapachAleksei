@@ -16,13 +16,16 @@ public class RadioButton {
         this.uiElement = new UIElement(driver, by);
         this.rows = new ArrayList<>();
 
-        for (UIElement element : uiElement.findUIElements(By.cssSelector("div.radio"))) {
-            rows.add(element.getText());
-        }
     }
     public RadioButton(WebDriver driver, WebElement webElement) {
         this.uiElement = new UIElement(driver, webElement);
     }
-
+    public RadioButton getRows(int index) {
+        ArrayList<UIElement> list = (ArrayList<UIElement>) uiElement.findUIElements(By.cssSelector("input.radio"));
+        return new RadioButton(driver, list.get(index));
+    }
+    public UIElement getRadioClick() {
+        return uiElement.findElement(By.cssSelector("input.radio"));
+    }
 
 }

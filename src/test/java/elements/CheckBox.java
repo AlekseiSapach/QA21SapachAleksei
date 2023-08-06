@@ -15,13 +15,16 @@ public class CheckBox {
         this.uiElement = new UIElement(driver, webElement);
     }
     public void setCheckBox() {
-        if (uiElement.isSelected() && !uiElement.isSelected()) {
-            uiElement.click();
+        if (uiElement.isEnabled() && !uiElement.isSelected()) {
+            getClick();
         }
     }
     public void removeCheckBox() {
-        if (uiElement.isSelected() &&uiElement.isSelected()) {
-            uiElement.click();
+        if (uiElement.isEnabled() && uiElement.isSelected()) {
+            getClick();
         }
+    }
+    public void getClick(){
+        uiElement.click();
     }
 }

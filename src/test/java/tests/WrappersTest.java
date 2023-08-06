@@ -2,10 +2,12 @@ package tests;
 
 import baseEntities.BaseTest;
 import elements.CheckBox;
+import elements.RadioButton;
 import elements.TableCell;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import pages.AddProjectsPage;
 import pages.ProjectsPage;
 import utils.configuration.ReadProperties;
 
@@ -21,7 +23,19 @@ public class WrappersTest extends BaseTest {
         checkBox1.setCheckBox();
         checkBox2.removeCheckBox();
     }
+    @Test
+    public void tableRadio() {
+        loginStep.successLogin(
+                ReadProperties.username(),
+                ReadProperties.password()
+        );
 
+        AddProjectsPage addProjectsPage = new AddProjectsPage(driver);
+        addProjectsPage.openPageByUrl();
+        RadioButton radioButton = addProjectsPage.getAddProjectRadio().getRows(2);
+        radioButton.getRadioClick().click();
+
+    }
     @Test
     public void tableTest() {
         loginStep.successLogin(

@@ -1,6 +1,8 @@
 package pages;
 
 import baseEntities.BasePage;
+import elements.RadioButton;
+import elements.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
