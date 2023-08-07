@@ -45,6 +45,11 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
