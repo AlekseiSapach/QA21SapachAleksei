@@ -2,7 +2,6 @@ package tests;
 
 import baseEntities.BaseTest;
 import helper.DataHelper;
-import models.UserCardBuild;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.configuration.ReadProperties;
