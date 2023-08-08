@@ -3,9 +3,12 @@ package helper;
 import models.User;
 import models.UserCardBuild;
 import models.UserCard;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.configuration.ReadProperties;
 
 public class DataHelper {
+    static Logger logger = LogManager.getLogger(DataHelper.class);
 
     public static UserCard getUserCard(){
         UserCard userCard = new UserCard();
@@ -14,7 +17,6 @@ public class DataHelper {
         userCard.setZipCode(ReadProperties.zipCode());
         return userCard;
     }
-
     public static UserCardBuild getUserCardBuild() {
         UserCardBuild userCardBuild = new UserCardBuild.Builder()
                 .withFirstName("Sapach")
@@ -28,6 +30,7 @@ public class DataHelper {
         user.setEmail(ReadProperties.username());
         user.setPassword(ReadProperties.password());
 
+        logger.info(user.toString());
         return user;
     }
 
@@ -36,6 +39,7 @@ public class DataHelper {
         user.setEmail(ReadProperties.username());
         user.setPassword(ReadProperties.password());
 
+        logger.info(user.toString());
         return user;
     }
 }

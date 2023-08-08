@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class LoggerTest extends BaseTest {
     Logger logger = LogManager.getLogger(LoggerTest.class);
     @Test
-    public void loggerTest(){
+    public void loggerTest() {
         logger.trace("Trace Message...");
         logger.debug("Debug Message...");
         logger.info("Info Message...");
@@ -16,5 +16,4 @@ public class LoggerTest extends BaseTest {
         logger.error("Error Message...");
         logger.fatal("Fatal Message...");
     }
-
 }
