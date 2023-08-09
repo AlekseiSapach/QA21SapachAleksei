@@ -67,7 +67,7 @@ public class End2EndTest extends BaseTest {
         overviewPage.getFinishButton().click();
 
         completePage.isPageOpened();
-        Assert.assertEquals(completePage.getLabel().getText(),"Thank your order!");
+        Assert.assertEquals(completePage.getLabel().getText(),"Thank you for your order!");
 
     }
 
