@@ -6,6 +6,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 import steps.CheckoutStep;
+import steps.LoginStep;
+import steps.ProductStep;
 import utils.configuration.ReadProperties;
 
 public class BaseTest {
@@ -17,6 +19,8 @@ public class BaseTest {
     protected OverviewPage overviewPage;
     protected CompletePage completePage;
     protected CheckoutPage checkoutPage;
+    protected LoginStep loginStep;
+    protected ProductStep productStep;
 
     @BeforeMethod
     public void setUp() {
@@ -24,6 +28,8 @@ public class BaseTest {
         driver = browserFactory.getDriver();
 
         checkoutStep = new CheckoutStep(driver);
+        loginStep = new LoginStep(driver);
+        productStep = new ProductStep(driver);
         loginPage  = new LoginPage(driver);
         productPage = new ProductPage(driver);
         youCardPage = new YouCardPage(driver);

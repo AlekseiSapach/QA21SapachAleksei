@@ -9,12 +9,8 @@ import utils.configuration.ReadProperties;
 public class End2EndTest extends BaseTest {
     @Test
     public void end2endTest() {
-
-        loginPage.getEmail(ReadProperties.username())
-                .getPassword(ReadProperties.password())
-                .getClick()
-                .getAddToCart()
-                .getShopping();
+        loginStep.successLogin(ReadProperties.username(), ReadProperties.password()).isPageOpened();
+        productStep.productSelection().isPageOpened();
         youCardPage.checkoutButton.click();
         checkoutStep.getInformation(DataHelper.getUserCard()).isPageOpened();
         overviewPage.finishButton.click();

@@ -27,16 +27,9 @@ public class LoginPage extends BasePage {
     }
 
     // Блок комплексных методов
-    public LoginPage getEmail(String username){
+    public void login(String username, String psw) {
         emailInput.sendKeys(username);
-        return this;
-    }
-    public LoginPage getPassword (String psw){
         pswInput.sendKeys(psw);
-        return this;
-    }
-    public ProductPage getClick(){
         logInButton.click();
-        return new ProductPage(driver);
     }
 }
