@@ -2,7 +2,6 @@ package elements;
 
 import org.openqa.selenium.*;
 import services.WaitService;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +24,6 @@ public class UIElement implements WebElement {
         this.webElement = webElement;
         this.waitService = new WaitService(driver);
     }
-
 
     @Override
     public void click() {
@@ -130,4 +128,7 @@ public class UIElement implements WebElement {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
     }
 
+    public UIElement findUIElement(By by) {
+        return new UIElement(driver, webElement.findElement(by));
+    }
 }

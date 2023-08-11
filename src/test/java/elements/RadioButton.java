@@ -8,24 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RadioButton {
-    private UIElement uiElement;
-    private WebDriver driver;
-    private List<String> rows;
+    private List<String> valueList;
+    private List<String> textList;
+    private List<UIElement> uiElementList;
 
-    public RadioButton(WebDriver driver, By by) {
-        this.uiElement = new UIElement(driver, by);
-        this.rows = new ArrayList<>();
+    public RadioButton(WebDriver driver, String attributeNameValue) {
+        uiElementList = new ArrayList<>();
+        valueList = new ArrayList<>();
+        textList = new ArrayList<>();
 
+        for (WebElement webElement: driver.findElements(By.name(attributeNameValue))) {
+            UIElement element = new UIElement(driver, webElement);
+            uiElementList.add(element);
+            valueList.add(element.getAttribute("value"));
+            textList.add(element.findUIElement(By.xpath("parent::*/strong")).getText().trim());
+        }
     }
-    public RadioButton(WebDriver driver, WebElement webElement) {
-        this.uiElement = new UIElement(driver, webElement);
+    public void selectByIndex(int index){
+        uiElementList.get(index).click();
     }
-    public RadioButton getRows(int index) {
-        ArrayList<UIElement> list = (ArrayList<UIElement>) uiElement.findUIElements(By.cssSelector("input.radio"));
-        return new RadioButton(driver, list.get(index));
+    public void selectByValue(String value){
+        uiElementList.get(valueList.indexOf(value)).click();
     }
-    public UIElement getRadioClick() {
-        return uiElement.findElement(By.cssSelector("input.radio"));
+    public void selectByText(String text){
+        uiElementList.get(textList.indexOf(text)).click();
     }
-
 }

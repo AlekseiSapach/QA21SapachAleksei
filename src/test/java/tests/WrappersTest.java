@@ -32,9 +32,9 @@ public class WrappersTest extends BaseTest {
 
         AddProjectsPage addProjectsPage = new AddProjectsPage(driver);
         addProjectsPage.openPageByUrl();
-        RadioButton radioButton = addProjectsPage.getAddProjectRadio().getRows(2);
-        radioButton.getRadioClick().click();
-
+        addProjectsPage.getType().selectByIndex(2);
+        addProjectsPage.getType().selectByValue("1");
+        addProjectsPage.getType().selectByText("Use multiple test suites to manage cases");
     }
     @Test
     public void tableTest() {
