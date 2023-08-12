@@ -13,6 +13,7 @@ public class EditProjectsPage extends BasePage {
     // Блок описания локаторов для элементов
     private final By editReferencesLocator = By.id("projects-tabs-references");
     private final By selectButtonLocator = By.xpath("//*[@id=\"reference_plugin_chzn\"]/a/div/b");
+    private final By inputDropDownLocator = By.xpath("//*[@id=\"defect_plugin_chzn\"]/div/div/input");
 
     // Блок инициализации
     public EditProjectsPage(WebDriver driver) {
@@ -34,6 +35,9 @@ public class EditProjectsPage extends BasePage {
     }
     public WebElement getSelectButton (){
         return driver.findElement(selectButtonLocator);
+    }
+    public WebElement getInputDropDown (){
+        return driver.findElement(inputDropDownLocator);
     }
     public DropDownMenu getEditType(){
         return new DropDownMenu(driver, "active-result");
