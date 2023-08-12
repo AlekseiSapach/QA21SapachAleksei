@@ -2,13 +2,10 @@ package tests;
 
 import baseEntities.BaseTest;
 import elements.CheckBox;
-import elements.RadioButton;
-import elements.TableCell;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.AddProjectsPage;
-import pages.ProjectsPage;
+import pages.EditProjectsPage;
 import utils.configuration.ReadProperties;
 
 public class WrappersTest extends BaseTest {
@@ -37,16 +34,16 @@ public class WrappersTest extends BaseTest {
         addProjectsPage.getType().selectByText("Use multiple test suites to manage cases");
     }
     @Test
-    public void tableTest() {
+    public void DropDown() {
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
         );
 
-        ProjectsPage projectsPage = new ProjectsPage(driver);
-        projectsPage.openPageByUrl();
-
-        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 1);
-        cell.getLink().click();
+        EditProjectsPage editProjectsPage = new EditProjectsPage(driver);
+        editProjectsPage.openPageByUrl();
+        editProjectsPage.getEditReferences().click();
+        editProjectsPage.getSelectButton().click();
+        editProjectsPage.getEditType().selectByTextDropDown("GitHub");
     }
 }
