@@ -43,7 +43,7 @@ public class WrappersTest extends BaseTest {
         EditProjectsPage editProjectsPage = new EditProjectsPage(driver);
         editProjectsPage.openPageByUrl();
         editProjectsPage.getEditReferences().click();
-        editProjectsPage.getSelectButton().click();
-        editProjectsPage.getEditType().selectByTextDropDown("GitHub");
+        editProjectsPage.getSelectElement().selectByIndex(4);
+        editProjectsPage.getSelectElement().selectByText("GitHub");
     }
 }

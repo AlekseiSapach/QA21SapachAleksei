@@ -2,27 +2,36 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
+import services.WaitService;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DropDownMenu {
-    private List<String> textList;
-    private List<UIElement> uiElementList;
+    private UIElement uiElement;
+    private UIElement actionElement;
+    private UIElement optionElement;
+    private WaitService waitService;
+    private List<UIElement> optionList = new ArrayList<>();
+    private List<String> textList = new ArrayList<>();
 
-    public DropDownMenu(WebDriver driver, String attributeClassValue) {
-        uiElementList = new ArrayList<>();
-        textList = new ArrayList<>();
-
-        for (WebElement webElement: driver.findElements(By.className(attributeClassValue))) {
-            UIElement element = new UIElement(driver, webElement);
-            uiElementList.add(element);
-            textList.add(element.findUIElement(By.xpath("//*[starts-with(@id, 'defect_plugin_chzn_o_')]"))
-                    .getText().trim());
-        }
+    public DropDownMenu(WebDriver driver, By by) {
+        this.waitService = new WaitService(driver);
+        this.uiElement = new UIElement(driver, by);
+        this.actionElement = uiElement.findElement(By.tagName("a"));
+        this.optionElement = uiElement.findElement(By.className("chzn-drop"));
     }
-    public void selectByTextDropDown(String text){
-        uiElementList.get(textList.indexOf(text)+1).click();
+    private void open(){
+        actionElement.click();
+        waitService.waitForVisibility(optionElement);
+        uiElement.findUIElements(By.tagName("li")).forEach(element -> optionList.add(element));
+        optionList.forEach(element -> textList.add(element.getText()));
+    }
+    public void selectByText(String text){
+        open();
+        optionList.get(textList.indexOf(text)).click();
+    }
+    public void selectByIndex(int index){
+        open();
+        optionList.get(index).click();
     }
 }
