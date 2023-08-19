@@ -1,9 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class OverviewPage extends BasePage {
     private final static String pagePath = "/checkout-step-two.html";
@@ -13,8 +14,8 @@ public class OverviewPage extends BasePage {
     private final By finishButtonLocator = By.id("finish");
 
     // Блок инициализации
-    public OverviewPage(WebDriver driver) {
-        super(driver);
+    public OverviewPage() {
+        super();
     }
 
     @Override
@@ -24,10 +25,7 @@ public class OverviewPage extends BasePage {
 
     // Блок атомарных методов
 
-    public WebElement getFinishButton() {
-        return driver.findElement(finishButtonLocator);
+    public SelenideElement getFinishButton() {
+        return $(finishButtonLocator);
     }
-
-    // Блок комплексных методов
-
 }

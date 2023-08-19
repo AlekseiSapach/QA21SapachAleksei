@@ -1,7 +1,8 @@
 package baseEntities;
 
-import factory.BrowserFactory;
-import org.openqa.selenium.WebDriver;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.CompletePage;
@@ -12,9 +13,10 @@ import steps.LoginStep;
 import steps.ProductStep;
 import utils.configuration.ReadProperties;
 
-public class BaseTest {
-    protected WebDriver driver;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
+public class BaseTest {
     protected LoginStep loginStep;
     protected ProductStep productStep;
     protected CheckoutStep checkoutStep;
@@ -24,22 +26,23 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        BrowserFactory browserFactory = new BrowserFactory();
-        driver = browserFactory.getDriver();
+        //SelenideLogger.addListener("AllureSelenide",new AllureSelenide());
 
-        loginStep = new LoginStep(driver);
-        productStep = new ProductStep(driver);
-        checkoutStep = new CheckoutStep(driver);
-        youCardPage = new YouCardPage(driver);
-        overviewPage = new OverviewPage(driver);
-        completePage = new CompletePage(driver);
+        Configuration.baseUrl = ReadProperties.getUrl();
+        Configuration.timeout = 8000;
+        //Configuration.browserSize = "1640x900";
 
-        driver.get(ReadProperties.getUrl());
+        loginStep = new LoginStep();
+        productStep = new ProductStep();
+        checkoutStep = new CheckoutStep();
+        youCardPage = new YouCardPage();
+        overviewPage = new OverviewPage();
+        completePage = new CompletePage();
+
+        open(ReadProperties.getUrl());
     }
-
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        closeWebDriver();
     }
-
 }

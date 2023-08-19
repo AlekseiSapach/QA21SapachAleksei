@@ -1,9 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
 
@@ -13,8 +14,8 @@ public class LoginPage extends BasePage {
     private final By logInButtonLocator = By.id("login-button");
 
     // Блок инициализации
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super();
     }
 
     @Override
@@ -23,16 +24,16 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getEmailInput() {
-        return driver.findElement(emailInputLocator);
+    public SelenideElement getEmailInput() {
+        return $(emailInputLocator);
     }
 
-    public WebElement getPswInput() {
-        return driver.findElement(pswInputLocator);
+    public SelenideElement getPswInput() {
+        return $(pswInputLocator);
     }
 
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+    public SelenideElement getLogInButton() {
+        return $(logInButtonLocator);
     }
 
     // Блок комплексных методов
@@ -41,5 +42,4 @@ public class LoginPage extends BasePage {
         getPswInput().sendKeys(psw);
         getLogInButton().click();
     }
-
 }

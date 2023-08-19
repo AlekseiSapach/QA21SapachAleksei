@@ -1,34 +1,29 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class CompletePage extends BasePage {
     private final static String pagePath = "/checkout-complete.html";
 
     // Блок описания локаторов для элементов
-
     private final By labelLocator = By.className("complete-header");
 
     // Блок инициализации
-    public CompletePage(WebDriver driver) {
-        super(driver);
+    public CompletePage() {
+        super();
     }
 
     @Override
     protected By getPageIdentifier() {
         return labelLocator;
     }
-
     // Блок атомарных методов
 
-    public WebElement getLabel() {
-        return driver.findElement(labelLocator);
+    public SelenideElement getLabel() {
+        return $(labelLocator);
     }
-
-    // Блок комплексных методов
-
-
 }

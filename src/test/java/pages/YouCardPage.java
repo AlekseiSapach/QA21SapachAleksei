@@ -1,9 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class YouCardPage extends BasePage {
     private final static String pagePath = "/cart.html";
@@ -12,8 +13,8 @@ public class YouCardPage extends BasePage {
     private final By checkoutButtonLocator = By.id("checkout");
 
     // Блок инициализации
-    public YouCardPage(WebDriver driver) {
-        super(driver);
+    public YouCardPage() {
+        super();
     }
 
     @Override
@@ -26,8 +27,7 @@ public class YouCardPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getCheckoutButton() {
-        return driver.findElement(checkoutButtonLocator);
+    public SelenideElement getCheckoutButton() {
+        return $(checkoutButtonLocator);
     }
-
 }

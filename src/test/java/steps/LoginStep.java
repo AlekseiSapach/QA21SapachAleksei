@@ -1,13 +1,12 @@
 package steps;
 
 import baseEntities.BaseStep;
-import org.openqa.selenium.WebDriver;
 import pages.ProductPage;
 
 public class LoginStep extends BaseStep {
 
-    public LoginStep(WebDriver driver) {
-        super(driver);
+    public LoginStep() {
+        super();
     }
 
     public ProductPage successLogin(String username, String psw) {

@@ -1,12 +1,10 @@
 package tests;
 
 import baseEntities.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CompletePage;
-import pages.OverviewPage;
-import pages.YouCardPage;
 import utils.configuration.ReadProperties;
+
+import static com.codeborne.selenide.Condition.exactText;
 
 public class End2EndTest extends BaseTest {
     @Test
@@ -23,8 +21,6 @@ public class End2EndTest extends BaseTest {
         overviewPage.getFinishButton().click();
 
         completePage.isPageOpened();
-        Assert.assertEquals(completePage.getLabel().getText(),"Thank you for your order!");
-
+        completePage.getLabel().shouldHave(exactText("Thank you for your order!"));
     }
-
 }
