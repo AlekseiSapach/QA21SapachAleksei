@@ -23,7 +23,7 @@ public class ProductPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return By.id("add-to-cart-sauce-labs-backpack");
+        return By.id("shopping_cart_container");
     }
 
     public void openPageByUrl() {

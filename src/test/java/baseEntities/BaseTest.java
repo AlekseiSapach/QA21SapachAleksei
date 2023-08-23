@@ -11,7 +11,7 @@ import steps.ProductStep;
 import utils.configuration.ReadProperties;
 
 public class BaseTest {
-    protected WebDriver driver;
+    public static WebDriver driver;
     protected CheckoutStep checkoutStep;
     protected LoginPage loginPage;
     protected ProductPage productPage;
@@ -43,5 +43,6 @@ public class BaseTest {
     public void tearDown() {
         driver.quit();
     }
+
 
 }

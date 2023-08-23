@@ -23,3 +23,12 @@ Feature: Параметризированные тесты
     |username|password|prId|
     |atrostyanko@gmail.com|Qwertyu_1|123|
     |atrostyanko1@gmail.com|Qwertyu_2|12345|
+
+  Scenario: Параметризация шага
+    Given открыт браузер
+    * страница логина открыта
+    When user logged in
+      |username| atrostyanko@gmail.com |
+      |password| Qwertyu_1             |
+    Then title is "All Projects"
+    And project id is 123
