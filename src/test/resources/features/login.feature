@@ -14,11 +14,11 @@ Feature: Validation login functionality
     Given open login page
     When user enter username standard_user1 and password secret_sauce
     * user clicks login button
-    Then error username
+    Then error login Epic sadface: Username and password do not match any user in this service is displayed
   @gui
   @negative
-  Scenario: Incorrect Login  (invalid password)
+  Scenario: Incorrect password  (invalid password)
     Given open login page
     When user enter username standard_user and password secret_sauce1
     * user clicks login button
-    Then error password
+    Then error password Epic sadface: Username and password do not match any user in this service is displayed

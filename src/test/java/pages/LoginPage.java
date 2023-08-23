@@ -16,8 +16,8 @@ public class LoginPage extends BasePage {
     @FindBy (id = "login-button")
     public WebElement logInButton;
 
-    private final By errorTextLocator = By.className("error-message-container error");
-    private final By errorFieldTextLocator = By.className("error-message-container error");
+    private final By errorTextLocator = By.tagName("h3");
+    private final By errorFieldTextLocator = By.tagName("h3");
 
     // Блок инициализации
     public LoginPage(WebDriver driver) {
