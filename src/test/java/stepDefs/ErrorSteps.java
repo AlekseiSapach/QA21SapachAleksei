@@ -2,6 +2,7 @@ package stepDefs;
 
 import baseEntities.BaseTest;
 import io.cucumber.java.en.Then;
+import org.testng.Assert;
 
 public class ErrorSteps extends  BaseTest {
     private BaseTest baseTest;
@@ -10,13 +11,14 @@ public class ErrorSteps extends  BaseTest {
         this.baseTest = baseTest;
     }
 
-    @Then("error username")
-    public void getErrorUsername(){
+    @Then("error login {} is displayed")
+    public void getErrorLogin(String error){
+        Assert.assertEquals(error,"Epic sadface: Username and password do not match any user in this service");
 
     }
-
-    @Then("error password")
-    public void getErrorPassword(){
+    @Then("error password {} is displayed")
+    public void getErrorPassword(String error){
+        Assert.assertEquals(error,"Epic sadface: Username and password do not match any user in this service");
 
     }
 }

@@ -33,17 +33,5 @@ public class LoginStepDefs extends BaseTest {
     @Then("dashboard page is displayed")
     public void isDashboardPageIsDisplayed(){
         Assert.assertTrue(new ProductPage(driver).isPageOpened());
-
     }
-    @Then("error login {} is displayed")
-    public void getErrorLogin(String error){
-        Assert.assertEquals(error,"Epic sadface: Username and password do not match any user in this service");
-
-    }
-    @Then("error password {} is displayed")
-    public void getErrorPassword(String error){
-        Assert.assertEquals(error,"Epic sadface: Username and password do not match any user in this service");
-
-    }
-
 }
