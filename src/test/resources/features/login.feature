@@ -1,24 +1,17 @@
-Feature: Validation login functionality
+Feature: End2End Test
 
-  @gui
-  @smoke
   Scenario: Success Login
     Given open login page
     When user enter username standard_user and password secret_sauce
     * user clicks login button
-    Then dashboard page is displayed
-
-  @gui
-  @negative
-  Scenario: Incorrect Login  (invalid username)
-    Given open login page
-    When user enter username standard_user1 and password secret_sauce
-    * user clicks login button
-    Then error login Epic sadface: Username and password do not match any user in this service is displayed
-  @gui
-  @negative
-  Scenario: Incorrect password  (invalid password)
-    Given open login page
-    When user enter username standard_user and password secret_sauce1
-    * user clicks login button
-    Then error password Epic sadface: Username and password do not match any user in this service is displayed
+    Then product page is displayed
+    * user click add to cart button
+    * user click shopping cart button
+    Then you card page is displayed
+    * user click checkout button
+    Then checkout page is displayed
+    When enter user data firstname Sapach, lastname Aleksei  and zipcode 1992
+    * user click continue button
+    Then overview page is displayed
+    * user click finish button
+    Then message Thank you for your order! is displayed

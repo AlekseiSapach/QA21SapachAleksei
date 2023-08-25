@@ -16,9 +16,6 @@ public class LoginPage extends BasePage {
     @FindBy (id = "login-button")
     public WebElement logInButton;
 
-    private final By errorTextLocator = By.tagName("h3");
-    private final By errorFieldTextLocator = By.tagName("h3");
-
     // Блок инициализации
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -27,13 +24,6 @@ public class LoginPage extends BasePage {
     @Override
     protected By getPageIdentifier() {
         return By.id("login-button");
-    }
-    public WebElement getErrorTextElement() {
-        return driver.findElement(errorTextLocator);
-    }
-
-    public WebElement getErrorFieldTextElement() {
-        return driver.findElement(errorFieldTextLocator);
     }
 
     // Блок комплексных методов

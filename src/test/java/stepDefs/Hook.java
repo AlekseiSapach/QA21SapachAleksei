@@ -14,15 +14,10 @@ public class Hook extends BaseTest {
         this.baseTest = baseTest;
     }
 
-    @Before(order = 10001)
+    @Before
     @Step("Browser initialization")
     public void initGUIScenario(Scenario scenario){
         baseTest.driver = new BrowserFactory().getDriver();
-    }
-    @Before
-    @Step("Api initialization")
-    public void initAPIScenario(Scenario scenario){
-        System.out.println("Init connection to the server");
     }
     @After
     public void tearDown(Scenario scenario){
