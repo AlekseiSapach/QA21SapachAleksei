@@ -23,7 +23,7 @@ public class ProjectAdapter {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    public void getAllProjects(){
+    public Projects getAllProjects(){
         Response response = given()
                 .get(Endpoints.ADD_ALL_PROJECTS)
                 .then()
