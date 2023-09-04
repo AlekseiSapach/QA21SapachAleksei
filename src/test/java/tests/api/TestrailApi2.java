@@ -92,16 +92,17 @@ public class TestrailApi2 extends BaseApiTest {
                 .when()
                 .get(Endpoints.GET_ALL_USERS);
 
-        User[] actualUser = gson.fromJson(response.getBody().asString(),User[].class);
+        User[] actualUsers = gson.fromJson(response.getBody().asString(),User[].class);
 
         User actualUser = new User();
-        for (User user: actualUsers){
+        for (User user:
+                actualUsers){
             if (user.getId()==1){
-                actualUser=user;
+                actualUser = user;
             }
         }
 
-        Assert.assertEquals(actualUser,expectedUser);
+        Assert.assertEquals(actualUser, expectedUser);
     }
     @Test
     public void getAllUsers2() {
