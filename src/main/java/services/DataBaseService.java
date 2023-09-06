@@ -49,20 +49,19 @@ public class DataBaseService {
 
     public void executeSQL(String sql){
         try {
-            logger.info("Результат выполнения запроса " + getStatement().executeQuery(sql));
+            logger.info("Результат выполнения запроса " + getStatement().execute(sql));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ResultSet executeQuery(String sql) {
+    public ResultSet executeQuery(String sql){
         try {
-            getStatement().execute(sql);
+          return getStatement().executeQuery(sql);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
-    }
 
+    }
 
     public void closeConnected(){
         try {
