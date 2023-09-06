@@ -13,8 +13,7 @@ public class sqlTest extends BaseDBTest {
     static Logger logger = LogManager.getLogger(sqlTest.class);
     @Test
     public void firstDbTest(){
-        ResultSet rs = dataBaseService.executeQuery("SELECT * FROM public.\"Users\"\n" +
-                "ORDER BY id ASC");
+        ResultSet rs = dataBaseService.executeQuery("SELECT * FROM public.\"Users\" ORDER BY id ASC");
         try{
             while (rs.next()){
                 int id = rs.getInt("id");
