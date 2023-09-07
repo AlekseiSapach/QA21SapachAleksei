@@ -7,6 +7,7 @@ import lombok.Data;
 public class Project {
     @SerializedName(value = "name")
     private String projectName;
+    @SerializedName(value = "announcement")
     private String Announcement;
     @SerializedName(value = "suite_mode")
     private int ProjectType;

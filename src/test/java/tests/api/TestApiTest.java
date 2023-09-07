@@ -1,7 +1,6 @@
 package tests.api;
 
 import baseEntities.BaseApiTest;
-import com.ctc.wstx.shaded.msv_core.datatype.xsd.ConcreteType;
 import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
@@ -32,7 +31,6 @@ public class TestApiTest extends BaseApiTest {
 
         logger.info(response.getBody().asPrettyString());
         logger.info(httpRequest.log().all());
-
     }
 
     @Test
@@ -47,6 +45,5 @@ public class TestApiTest extends BaseApiTest {
                 .log().status()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
-
     }
 }
