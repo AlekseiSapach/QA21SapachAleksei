@@ -34,9 +34,10 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         given()
                 .body(String.format("{\n" +
-                                "    \"name\": \"Project X\",\n" +
-                                "    \"announcement\": \"Welcome to project X\",\n" +
-                                "    \"show_announcement\": true\n" +
+                                "    \"name\": \"%s\",\n" +
+                                "    \"announcement\": \"%s\",\n" +
+                                "    \"show_announcement\": %d\n" +
+                                "    \"suite_mode\": %b\n" +
                                 "}",
                         expectedProject.getProjectName(),
                         expectedProject.getAnnouncement(),
